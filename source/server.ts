@@ -5,6 +5,8 @@ import { connectToDatabase } from "./db/database"
 import routes from './routes/expenses';
 import * as swaggerUi from 'swagger-ui-express';
 const swaggerFile = require('./../swagger-output.json');
+import swaggerValidation from 'openapi-validator-middleware';
+swaggerValidation.init('./swagger-output.json');
 
 const router: Express = express();
 
@@ -39,7 +41,10 @@ connectToDatabase()
 
 
         /** Error handling */
-        router.use((req, res, next) => {
+        router.use((err: any, req: any, res: any, next: any) => {
+            if (err instanceof swaggerValidation.InputValidationError) {
+                return res.status(400).json(err.errors);
+            }
             const error = new Error('not found');
             return res.status(404).json({
                 message: error.message
