@@ -40,5 +40,4 @@ const outputFile = './swagger-output.json'
 const endpointsFiles = ['./source/routes/expenses']
 
 swaggerAutogen(outputFile, endpointsFiles, doc).then(() => {
-    require('./source/server.ts')
 })
