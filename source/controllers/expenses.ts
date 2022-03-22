@@ -20,7 +20,6 @@ const getExpenses = async (req: Request, res: Response, next: NextFunction) => {
         // get some expenses
         const expenses = await collections.expenses?.find<Expense>({}).toArray();
         return res.status(200).json({
-            //TODO: list of type Expense
             expenses: expenses
         });
     } catch (error: any) {
@@ -49,7 +48,6 @@ const getExpense = async (req: Request, res: Response, next: NextFunction) => {
         const expense = await collections.expenses?.findOne<Expense>(query);
         // get the expense
         return res.status(200).json({
-            //TODO: object of type Expense
             message: expense
         });
     } catch (error: any) {

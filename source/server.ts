@@ -6,7 +6,6 @@ import routes from './routes/expenses';
 import * as swaggerUi from 'swagger-ui-express';
 const swaggerFile = require('./../swagger-output.json');
 import swaggerValidation from 'openapi-validator-middleware';
-swaggerValidation.init('./swagger-output.json');
 
 const router: Express = express();
 
@@ -14,7 +13,7 @@ connectToDatabase()
     .then(() => {
 
         /** Logging */
-        //TODO: Add Logging
+        //Nor Required
         /** Parse the request */
         router.use(express.urlencoded({ extended: false }));
         /** Takes care of JSON data */
