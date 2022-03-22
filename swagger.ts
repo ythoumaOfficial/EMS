@@ -13,7 +13,7 @@ const doc = {
     produces: ['application/json'],
     tags: [
         {
-            "name": "Expenses",
+            "name": "Expense",
             "description": "Endpoints"
         }
     ],
@@ -26,10 +26,12 @@ const doc = {
         }
     },
     definitions: {
-        Expenses: {
+        Expense: {
             "description": "Meat",
             "value": 12500.25,
-            "type": "Food"
+            "type": {
+                '@enum': ["Entertainment", "Food", "Bills", "Transport", "Other"]
+            }
         }
     }
 }

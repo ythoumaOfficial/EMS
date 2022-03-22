@@ -9,7 +9,7 @@
   "basePath": "/",
   "tags": [
     {
-      "name": "Expenses",
+      "name": "Expense",
       "description": "Endpoints"
     }
   ],
@@ -34,7 +34,13 @@
   "paths": {
     "/expenses": {
       "get": {
-        "description": "",
+        "tags": [
+          "Expense"
+        ],
+        "description": "get all Expenses.",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -46,8 +52,23 @@
         }
       },
       "post": {
-        "description": "",
-        "parameters": [],
+        "tags": [
+          "Expense"
+        ],
+        "description": "Add new Expense.",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Object of type Expense",
+            "schema": {
+              "$ref": "#/definitions/Expense"
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "OK"
@@ -60,7 +81,13 @@
     },
     "/expenses/{id}": {
       "get": {
-        "description": "",
+        "tags": [
+          "Expense"
+        ],
+        "description": "Get Expense by id.",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -80,13 +107,28 @@
         }
       },
       "put": {
-        "description": "",
+        "tags": [
+          "Expense"
+        ],
+        "description": "Get Expense by id.",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
-            "type": "string"
+            "type": "string",
+            "description": "ID of Expense"
+          },
+          {
+            "name": "obj",
+            "in": "body",
+            "description": "Object of type Expense",
+            "schema": {
+              "$ref": "#/definitions/Expense"
+            }
           }
         ],
         "responses": {
@@ -102,7 +144,13 @@
         }
       },
       "delete": {
-        "description": "",
+        "tags": [
+          "Expense"
+        ],
+        "description": "Delete Expense by id.",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
@@ -129,7 +177,7 @@
     }
   },
   "definitions": {
-    "Expenses": {
+    "Expense": {
       "type": "object",
       "properties": {
         "description": {
@@ -142,7 +190,13 @@
         },
         "type": {
           "type": "string",
-          "example": "Food"
+          "enum": [
+            "Entertainment",
+            "Food",
+            "Bills",
+            "Transport",
+            "Other"
+          ]
         }
       }
     }
