@@ -3,6 +3,8 @@ import http from 'http';
 import express, { Express } from 'express';
 import { connectToDatabase } from "./db/database"
 import routes from './routes/expenses';
+import * as swaggerUi from 'swagger-ui-express';
+const swaggerFile = require('./../swagger-output.json');
 
 const router: Express = express();
 
@@ -32,6 +34,8 @@ connectToDatabase()
 
         /** Routes */
         router.use('/', routes);
+
+        router.use('/doc', swaggerUi.serve, swaggerUi.setup(swaggerFile))
 
 
         /** Error handling */

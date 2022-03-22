@@ -28,6 +28,7 @@ const getExpenses = async (req: Request, res: Response, next: NextFunction) => {
 
 // getting a single expense
 const getExpense = async (req: Request, res: Response, next: NextFunction) => {
+     // #swagger.parameters['id'] = { description: 'ID of Expense' }
     try {
         // get the expense id from the req
         let id: string = req.params.id;
