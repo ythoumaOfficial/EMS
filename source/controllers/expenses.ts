@@ -39,7 +39,13 @@ const getExpense = async (req: Request, res: Response, next: NextFunction) => {
     try {
         // get the expense id from the req
         let id: string = req.params.id;
-        const query = { _id: new ObjectId(id) };
+        let expenseId: ObjectId;
+        try {
+            expenseId = new ObjectId(id);
+        } catch (error: any) {
+            return res.status(400).send(`${id} is Invalid id.`);
+        }
+        const query = { _id: expenseId };
         const expense = await collections.expenses?.findOne<Expense>(query);
         // get the expense
         return res.status(200).json({
@@ -66,7 +72,13 @@ const updateExpense = async (req: Request, res: Response, next: NextFunction) =>
         } */
     try {
         // get the expense id from the req.params
-        const query = { _id: new ObjectId(req.params.id) };
+        let expenseId: ObjectId;
+        try {
+            expenseId = new ObjectId(req.params.id);
+        } catch (error: any) {
+            return res.status(400).send(`${req.params.id} is Invalid id.`);
+        }
+        const query = { _id: expenseId };
         // get the data from req.body
         const updatedExpense: Expense = req.body as Expense;
         // update the expense
@@ -90,7 +102,14 @@ const deleteExpense = async (req: Request, res: Response, next: NextFunction) =>
         // get the expense id from req.params
         let id: string = req.params.id;
         // delete the expense
-        const query = { _id: new ObjectId(id) };
+        let expenseId: ObjectId;
+        try {
+            expenseId = new ObjectId(id);
+        } catch (error: any) {
+            return res.status(400).send(`${id} is Invalid id.`);
+        }
+
+        const query = { _id: expenseId };
         const result = await collections.expenses?.deleteOne(query);
 
         if (result && result.deletedCount) {
@@ -105,7 +124,6 @@ const deleteExpense = async (req: Request, res: Response, next: NextFunction) =>
             message: 'expense deleted successfully'
         });
     } catch (error: any) {
-        console.error(error.message);
         res.status(400).send(error.message);
     }
 };
@@ -131,7 +149,6 @@ const addExpense = async (req: Request, res: Response, next: NextFunction) => {
             message: result
         });
     } catch (error: any) {
-        console.error(error.message);
         res.status(400).send(error.message);
     }
 };
