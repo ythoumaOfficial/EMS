@@ -3,7 +3,7 @@ import * as dotenv from "dotenv";
 
 const collections: { expenses?: mongoDB.Collection } = {}
 
-const connectToDatabase = async function () {
+const connectToDatabase = async () => {
     dotenv.config();
 
     const client: mongoDB.MongoClient = new mongoDB.MongoClient(<string>process.env.DB_CONN_STRING);
