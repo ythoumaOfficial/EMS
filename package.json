@@ -7,7 +7,8 @@
     "dev": "nodemon source/server.ts",
     "build": "rm -rf build/ && prettier --write ./source/ && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start-gendoc": "node swagger.ts"
+    "start-gendoc": "node swagger.ts",
+    "jtest": "jest --forceExit --coverage --verbose"
   },
   "author": "Haytham M. Kaoukji",
   "license": "ISC",
@@ -24,6 +25,11 @@
     "typescript": "^4.6.2"
   },
   "devDependencies": {
-    "swagger-autogen": "^2.20.4"
+    "@types/jest": "^27.4.1",
+    "@types/supertest": "^2.0.12",
+    "jest": "^27.5.1",
+    "supertest": "^6.2.2",
+    "swagger-autogen": "^2.20.4",
+    "ts-jest": "^27.1.3"
   }
 }

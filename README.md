@@ -5,4 +5,5 @@ expense management system as nodeJs backend developer technical test
 1- All fields are required
 2- HTTPS not Included
 3- No Logging Required
-4- 
+4- Include ENV File, For Testing Purposes only.
+5- 

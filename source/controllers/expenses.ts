@@ -137,6 +137,7 @@ const addExpense = async (req: Request, res: Response, next: NextFunction) => {
     // #swagger.produces = ["application/json"]
     /* #swagger.parameters['obj'] = { 
        in: 'body',
+       required: true,
        description: 'Object of type Expense',
        schema: { $ref: "#/definitions/Expense" }
         } */

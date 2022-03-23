@@ -54,6 +54,7 @@
           {
             "name": "obj",
             "in": "body",
+            "required": true,
             "description": "Object of type Expense",
             "schema": {
               "$ref": "#/definitions/Expense"
@@ -94,6 +95,9 @@
           },
           "400": {
             "description": "Bad Request"
+          },
+          "404": {
+            "description": "Not Found"
           }
         }
       },
@@ -116,6 +120,7 @@
           {
             "name": "obj",
             "in": "body",
+            "required": true,
             "description": "Object of type Expense",
             "schema": {
               "$ref": "#/definitions/Expense"
@@ -189,7 +194,12 @@
             "Other"
           ]
         }
-      }
+      },
+      "required": [
+        "description",
+        "value",
+        "type"
+      ]
     }
   }
 }
