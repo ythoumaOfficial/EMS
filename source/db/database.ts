@@ -16,7 +16,7 @@ const connectToDatabase = async () => {
 
     collections.expenses = expensesCollection;
 
-    console.log(`Successfully connected to database: ${db.databaseName} and collection: ${expensesCollection.collectionName}`);
+    // console.log(`Successfully connected to database: ${db.databaseName} and collection: ${expensesCollection.collectionName}`);
 }
 
 

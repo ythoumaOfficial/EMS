@@ -49,5 +49,9 @@ router.use((err: any, req: any, res: any, next: any) => {
 /** Server */
 const httpServer = http.createServer(router);
 const PORT: any = process.env.PORT ?? 1987;
-httpServer.listen(PORT, () => console.log(`The server is running on port ${PORT}`));
+if (process.env.NODE_ENV !== "test") {
+    httpServer.listen(PORT, () => {
+        // console.log(`The server is running on port ${PORT}`);
+    })
+}
 export default router;

@@ -8,7 +8,7 @@
     "build": "rm -rf build/ && prettier --write ./source/ && tsc",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start-gendoc": "node swagger.ts",
-    "jtest": "jest --forceExit --coverage --verbose"
+    "jtest": "jest --forceExit --coverage --verbose  --maxWorkers=1"
   },
   "author": "Haytham M. Kaoukji",
   "license": "ISC",
