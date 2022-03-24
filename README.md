@@ -44,9 +44,9 @@ http://localhost:{PORT}/doc/#/
 
 ### Expected delivery Date: March, 24th, EOD
 ### Timeline (11 hours):
-Monday: from 4:30 PM till 7:30 PM
-Tuseday: from 5:30 PM till 8:00 PM
-wednesday: from 5:30 PM till 7:30 PM
-wednesday: from 5:30 PM till 8:00 PM
+Monday: from 4:30 PM till 7:30 PM <br>
+Tuseday: from 5:30 PM till 8:00 PM <br>
+wednesday: from 5:30 PM till 7:30 PM <br>
+wednesday: from 5:30 PM till 8:00 PM <br>
 
 
